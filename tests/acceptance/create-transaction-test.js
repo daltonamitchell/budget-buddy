@@ -7,7 +7,7 @@ test('I can create a new transaction', function(assert) {
   visit('/transactions');
 
   andThen(function() {
-    assert.equal(find('.transactions .transaction').size(), 0);
+    assert.equal(find('.transactions .transaction').size(), 0, 'Im starting with an empty database');
   });
 
   visit('/transactions/new');
@@ -24,13 +24,13 @@ test('I can create a new transaction', function(assert) {
 
   andThen(function() {
     let first = server.db.transactions[0];
-    assert.equal(first.name, 'New Bike');
+    assert.equal(first.name, 'New Bike', 'the correct data reached the server');
   });
 
   visit('/transactions');
 
   andThen(function() {
-    assert.equal(find('.transactions .transaction').size(), 1);
-    assert.equal(find('.transactions .transaction').text().trim(), 'New Bike');
+    assert.equal(find('.transactions .transaction').size(), 1, 'I can see a new transaction');
+    assert.equal(find('.transactions .transaction').text().trim(), 'New Bike', 'It has the values I entered');
   });
 });

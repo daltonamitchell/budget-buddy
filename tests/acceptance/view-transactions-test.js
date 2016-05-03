@@ -9,8 +9,8 @@ test('I can view a list of transactions', function(assert) {
   visit('/transactions');
 
   andThen(function() {
-    assert.equal(currentURL(), '/transactions');
-    assert.equal(find('.transactions .transaction').size(), 10);
+    assert.equal(currentURL(), '/transactions', 'can view the index page');
+    assert.equal(find('.transactions .transaction').size(), 10, 'all transactions are displayed');
   });
 });
 
@@ -19,5 +19,5 @@ test('I can view a single transactions details', function(assert) {
 
   visit(`/transaction/${transaction.id}`);
 
-  andThen(() => assert.equal(find('.transaction-title').text(), transaction.name));
+  andThen(() => assert.equal(find('.transaction-title').text(), transaction.name, 'can view the transaction details'));
 });
