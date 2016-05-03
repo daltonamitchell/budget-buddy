@@ -11,6 +11,26 @@ export default function() {
   // this.namespace = '';    // make this `api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
+  this.get('/api/transactions', function(db) {
+    return {
+      data: db.transactions.map(attrs => (
+        { type: 'transaction', id: attrs.id, attributes: attrs }
+      ))
+    };
+  });
+
+  this.get('/api/transactions/:id', function(db, request) {
+    let id = request.params.id;
+
+    return {
+      data: {
+        id: id,
+        type: 'transaction',
+        attributes: db.transactions.find(id)
+      }
+    };
+  });
+
   /*
     Route shorthand cheatsheet
   */
