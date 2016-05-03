@@ -19,6 +19,19 @@ export default function() {
     };
   });
 
+  this.post('/api/transactions', function(db, request) {
+    let attrs = JSON.parse(request.requestBody).data.attributes;
+    let transaction = db.transactions.insert(attrs);
+
+    return {
+      data: {
+        id: transaction.id,
+        type: 'transaction',
+        attributes: transaction
+      }
+    };
+  });
+
   this.get('/api/transactions/:id', function(db, request) {
     let id = request.params.id;
 

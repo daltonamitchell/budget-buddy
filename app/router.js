@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('transactions');
+  this.route('transactions', function() {
+    this.route('new');
+  });
   this.route('transaction', { path: '/transaction/:transaction_id' });
 });
 
