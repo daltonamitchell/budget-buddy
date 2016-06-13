@@ -20,7 +20,7 @@ test('I can create a new transaction', function(assert) {
   fillIn('input.amount_field', 2538);
   fillIn('input.date_field', '05/10/16');
   fillIn('input.frequency_field', 'once');
-  click('input[type=submit]');
+  click('button[type=submit]');
 
   andThen(function() {
     let first = server.db.transactions[0];

@@ -49,5 +49,5 @@ test('it properly submits form data', function(assert) {
   this.$('input.date_field').val(t.date).change();
   this.$('input.frequency_field').val(t.frequency).change();
   this.$('input.end_date_field').val(t.end_date).change();
-  this.$('input.submit').click();
+  this.$('button[type=submit]').click();
 });
