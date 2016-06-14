@@ -19,7 +19,7 @@ test('it renders empty fields if no properties are set', function(assert) {
   assert.equal(this.$('input.name_field').val(), '');
   assert.equal(this.$('input.amount_field').val(), 0);
   assert.equal(this.$('input.date_field').val(), '');
-  assert.equal(this.$('input.frequency_field').val(), '');
+  assert.equal(this.$('select[name=frequency]').val(), '');
   assert.equal(this.$('input.end_date_field').val(), '');
 });
 
@@ -29,7 +29,7 @@ test('it sets initial values if passed in', function(assert) {
   assert.equal(this.$('input.name_field').val(), t.name);
   assert.equal(this.$('input.amount_field').val(), t.amount);
   assert.equal(this.$('input.date_field').val(), t.date);
-  assert.equal(this.$('input.frequency_field').val(), t.frequency);
+  assert.equal(this.$('select[name=frequency]').val(), t.frequency);
   assert.equal(this.$('input.end_date_field').val(), t.end_date);
 });
 
@@ -44,7 +44,7 @@ test('it properly submits form data', function(assert) {
   this.$('input.name_field').val(t.name).change();
   this.$('input.amount_field').val(t.amount).change();
   this.$('input.date_field').val(t.date).change();
-  this.$('input.frequency_field').val(t.frequency).change();
+  this.$('select[name=frequency]').val(t.frequency).change();
   this.$('input.end_date_field').val(t.end_date).change();
   this.$('button[type=submit]').click();
 });

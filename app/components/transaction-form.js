@@ -51,19 +51,28 @@ export default Ember.Component.extend({
           },
         }
       });
+
+    // Init Semantic UI dropdown select
+    this.$('select.dropdown').dropdown();
+
+    // Ensure dropdown reflects initial value
+    this.send('updateFrequency');
   },
 
   actions: {
+    updateFrequency() {
+      // Set the "selected" item to the current value of frequency
+      if (this.get('frequency')) {
+        this.$('select[name=frequency]')
+              .val(this.get('frequency'))
+              .change();
+      }
+    },
     submitForm() {
-      let values = {
-        name: this.get('name'),
-        amount: this.get('amount'),
-        date: this.get('date'),
-        frequency: this.get('frequency'),
-        end_date: this.get('endDate')
-      };
+      let form = this.$('.ui.form');
+      let values = form.form('get values');
 
-      if ( this.$('ui.form').form('is valid') ) {
+      if ( form.form('is valid') ) {
         this.get('submitForm')(values);
       }
     }

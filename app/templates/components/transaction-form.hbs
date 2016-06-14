@@ -16,12 +16,20 @@
 
   <div class="field">
     <label>Frequency</label>
-    {{input class="frequency_field" label="Frequency" value=frequency}}
+    <select class="ui dropdown" name="frequency">
+      <option value="">Select frequency</option>
+      <option class="item" value="once">Once</option>
+      <option class="item" value="daily">Daily</option>
+      <option class="item" value="weekly">Weekly</option>
+      <option class="item" value="bi-weekly">Bi-weekly</option>
+      <option class="item" value="monthly">Monthly</option>
+      <option class="item" value="yearly">Yearly</option>
+    </select>
   </div>
 
   <div class="field">
     <label>End Date (optional)</label>
-    {{input class="end_date_field" name="endDate" value=endDate}}
+    {{input class="end_date_field" name="end_date" value=endDate}}
   </div>
 
   <button class="ui submit button" type="submit">Submit</button>
