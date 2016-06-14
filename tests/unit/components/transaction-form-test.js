@@ -49,8 +49,8 @@ test('it only submits when form data is valid', function(assert) {
   // enter correct values and resubmit
   this.$('input.name_field').val(GOOD_VALUES.name).change();
   this.$('input.amount_field').val(GOOD_VALUES.amount).change();
-  this.$('.date_field').val(GOOD_VALUES.date).change();
-  this.$('.frequency_field').val(GOOD_VALUES.frequency).change();
+  this.$('input.date_field').val(GOOD_VALUES.date).change();
+  this.$('input.frequency_field').val(GOOD_VALUES.frequency).change();
   this.$('button.submit').click();
 
   // assert.equal(this.$('.ui.error.message').html(), '', 'There shouldn\'t be any errors');

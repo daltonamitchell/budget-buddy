@@ -18,7 +18,7 @@ test('I can create a new transaction', function(assert) {
 
   fillIn('input.name_field', 'New Bike');
   fillIn('input.amount_field', 2538);
-  fillIn('input.date_field', '05/10/16');
+  fillIn('input.date_field', '05/10/2016');
   fillIn('input.frequency_field', 'once');
   click('button[type=submit]');
 

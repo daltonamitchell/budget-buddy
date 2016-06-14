@@ -8,15 +8,12 @@ moduleForComponent('transaction-form', 'Integration | Component | transaction fo
 const t = {
   name: 'Rent',
   amount: '375',
-  date: '05/15/16',
+  date: '05/15/2016',
   frequency: 'monthly',
-  end_date: '06/15/20'
+  end_date: '06/15/2020'
 };
 
 test('it renders empty fields if no properties are set', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{transaction-form}}`);
 
   assert.equal(this.$('input.name_field').val(), '');
@@ -27,7 +24,7 @@ test('it renders empty fields if no properties are set', function(assert) {
 });
 
 test('it sets initial values if passed in', function(assert) {
-  this.render(hbs`{{transaction-form name="Rent" amount="375" date="05/15/16" frequency="monthly" endDate="06/15/20"}}`);
+  this.render(hbs`{{transaction-form name="Rent" amount="375" date="05/15/2016" frequency="monthly" endDate="06/15/2020"}}`);
 
   assert.equal(this.$('input.name_field').val(), t.name);
   assert.equal(this.$('input.amount_field').val(), t.amount);
